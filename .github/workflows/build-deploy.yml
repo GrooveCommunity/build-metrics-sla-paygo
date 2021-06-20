@@ -13,7 +13,7 @@ env:
   APP_PORT: 9275
   MAIN_REPO_NAME: metrics-sla
   DEP_REPO_NAME: glib-noc-event-structs
-  VERSION: 1.0.0
+  VERSION: 1.0.1
 
 jobs:
   build_and_deploy_docker:
