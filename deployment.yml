@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-sla
+  labels:
+    app: metrics-sla
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: metrics-sla
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: metrics-sla
+        version: v1
+    spec:
+      containers:
+      - name: metrics-sla
+        image: gcr.io/monitoria-groovetech/metrics-sla:TAG_IMAGE
+        ports:
+        - containerPort: APP_PORT
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: APP_PORT
+          initialDelaySeconds: 3
+          periodSeconds: 3
+

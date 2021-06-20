@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: metrics-sla
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: lb-metrics-sla
+    networking.gke.io/managed-certificates: metrics-sla
+    kubernetes.io/ingress.allow-http: "false"
+spec: 
+  rules:
+  - http: 
+     paths: 
+     - path: /healthy
+       pathType: Prefix
+       backend: 
+        service:
+          name: metrics-sla
+          port: 
+           number: 80
+     - path: /process-queue
+       pathType: Prefix
+       backend: 
+        service:
+          name: metrics-sla
+          port: 
+           number: 80
