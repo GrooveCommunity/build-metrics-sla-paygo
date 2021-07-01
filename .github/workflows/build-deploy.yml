@@ -12,7 +12,8 @@ env:
   IMAGE: metrics-sla
   APP_PORT: 9275
   MAIN_REPO_NAME: metrics-sla
-  DEP_REPO_NAME: glib-noc-event-structs
+  DEP_STRUCTS_REPO_NAME: glib-noc-event-structs
+  DEP_STORAGE_REPO_NAME: glib-cloud-storage
   VERSION: 1.0.1
 
 jobs:

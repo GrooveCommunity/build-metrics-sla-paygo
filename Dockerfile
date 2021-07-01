@@ -1,11 +1,12 @@
 FROM gcr.io/monitoria-groovetech/gobuild:1.0.0.4f8730f as build
 
 ARG MAIN_REPO_NAME=""
-ARG DEP_REPO_NAME=""
+ARG DEP_STRUCTS_REPO_NAME=""
+ARG DEP_STORAGE_REPO_NAME=""
 
 WORKDIR /go/src/github.com/GrooveCommunity/
 
-RUN git clone https://github.com/GrooveCommunity/${MAIN_REPO_NAME}.git  && git clone https://github.com/GrooveCommunity/${DEP_REPO_NAME}.git
+RUN git clone https://github.com/GrooveCommunity/${MAIN_REPO_NAME}.git && git clone https://github.com/GrooveCommunity/${DEP_STRUCTS_REPO_NAME}.git && git clone https://github.com/GrooveCommunity/${DEP_STORAGE_REPO_NAME}.git
 
 WORKDIR /go/src/github.com/GrooveCommunity/${MAIN_REPO_NAME}/cmd
 
