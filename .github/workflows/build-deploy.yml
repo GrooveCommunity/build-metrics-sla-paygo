@@ -42,7 +42,7 @@ jobs:
   
     - name: Build Docker Image
       run: |-
-        docker build --build-arg APP_PORT=${{ env.APP_PORT }} --build-arg MAIN_REPO_NAME=${{ env.MAIN_REPO_NAME }} --build-arg DEP_REPO_NAME=${{ env.DEP_REPO_NAME }} --tag "gcr.io/$PROJECT_ID/$IMAGE:${{ env.VERSION }}.${{ steps.vars.outputs.sha_short }}" .
+        docker build --build-arg APP_PORT=${{ env.APP_PORT }} --build-arg MAIN_REPO_NAME=${{ env.MAIN_REPO_NAME }} --build-arg DEP_STRUCTS_REPO_NAME=${{ env.DEP_STRUCTS_REPO_NAME }} --build-arg DEP_STORAGE_REPO_NAME=${{ env.DEP_STORAGE_REPO_NAME }} --tag "gcr.io/$PROJECT_ID/$IMAGE:${{ env.VERSION }}.${{ steps.vars.outputs.sha_short }}" .
     
     - name: Deploys Docker Image
       run: |
